@@ -94,9 +94,9 @@ public class BigO {
        return timeResults;
    }
 
-   public void TestBigO(){
+   public String TestBigO(){
         int[] sizes = {1000, 10000, 100000, 1000000, 10000000}; // Diferentes tamaños de datos para probar los algoritmos
-
+        String tiempos = "";
         for (int size : sizes) {
             int[] data = generateRandomArray(size);
 
@@ -115,8 +115,10 @@ public class BigO {
             long binaryEndTime = System.nanoTime();
             long binaryDuration = binaryEndTime - binaryStartTime;
 
-            System.out.printf("Size: %d | Linear Search: %d ns | Binary Search: %d ns%n", size, linearDuration, binaryDuration);
+            tiempos += "Size: " + size + "| Linear Search: "+linearDuration+" ns | Binary Search: "+binaryDuration+" ns\n";
+
         }
+        return tiempos;
     }
 
     private static int[] generateRandomArray(int size) {
